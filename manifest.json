@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "lanhu-color2class",
+    "version": "1.0.0",
+    "description": "蓝湖颜色转类名",
+    "icons": {
+        "16": "assets/icon.png"
+    },
+    "action": {
+        "default_title": "lanhu-color2class",
+        "default_icon": "assets/icon.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://lanhuapp.com/",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "content_scripts": [
+        {
+            "css": [
+                "content/style.css"
+            ],
+            "js": [
+                "content/content.js"
+            ],
+            "matches": [
+                "https://lanhuapp.com/*"
+            ],
+            "all_frames": true,
+            "run_at": "document_end",
+            "match_about_blank": true
+        }
+    ]
+}
